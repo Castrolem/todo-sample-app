@@ -15,6 +15,9 @@ group :development, :test do
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
   gem 'rspec-rails', '~> 3.0'
+  gem 'capybara',    '~> 2.4.4'
+  gem 'launchy',     '~> 2.4.3'
+  gem 'selenium-webdriver'
 end
 
 group :test do
