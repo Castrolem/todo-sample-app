@@ -13,7 +13,7 @@ RSpec.describe StaticPagesController, :type => :feature, :js => true do
       end
 
       it "should have correct title" do
-        expect(page).to have_title "Home | #{base_title}"
+        expect(page).to have_title "#{base_title}"
       end
     end
 
