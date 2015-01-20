@@ -26,5 +26,15 @@ RSpec.describe StaticPagesController, :type => :feature, :js => true do
         expect(page).to have_title "Help | #{base_title}"
       end
     end
+
+    describe "GET signup" do
+      before (:each) do
+        visit signup_path
+      end
+
+      it "should have correct title" do
+        expect(page).to have_title "Sign up | #{base_title}"
+      end
+    end
   end
 end
