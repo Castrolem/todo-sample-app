@@ -20,6 +20,7 @@ group :development, :test do
   gem 'capybara',    '~> 2.4.4'
   gem 'launchy',     '~> 2.4.3'
   gem 'selenium-webdriver'
+  gem 'factory_girl_rails'
 end
 
 group :test do

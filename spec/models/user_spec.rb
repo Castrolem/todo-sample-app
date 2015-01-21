@@ -8,6 +8,16 @@ RSpec.describe User, :type => :model do
     expect(user).to be_valid
   end
 
+  it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
+  it { should respond_to(:authenticate) }
+
+  # context "authenticated?" do
+  #   it "should return false for a user with nil digest" do
+  #     expect(user.authenticated?('')).to be false
+  #   end
+  # end
+
   context "name" do
     it "should be present" do
       user.name = "     "

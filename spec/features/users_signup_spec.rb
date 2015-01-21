@@ -12,7 +12,7 @@ RSpec.describe StaticPagesController, :type => :feature, :js => true do
       before { visit signup_path }
 
       let(:submit) { "Create my account" }
-      
+
       describe "with invalid information" do
         it "should not create a user" do
           expect { click_button submit }.not_to change(User, :count)
