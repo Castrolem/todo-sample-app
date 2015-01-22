@@ -1,7 +1,6 @@
 require 'rails_helper'
-require 'spec_helper'
 
-RSpec.describe StaticPagesController, :type => :feature, :js => true do
+RSpec.describe UsersController, :type => :feature, :js => true do
 
   describe "User pages" do
 
