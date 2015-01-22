@@ -10,6 +10,7 @@ gem 'jquery-rails',         '4.0.3'
 gem 'turbolinks',           '2.3.0'
 gem 'jbuilder',             '2.2.3'
 gem 'sdoc',                 '0.4.0', group: :doc
+gem 'faker',                '~> 1.4.2'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
@@ -19,7 +20,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara',    '~> 2.4.4'
   gem 'launchy',     '~> 2.4.3'
-  gem 'faker',       '~> 1.4.2'
   gem 'selenium-webdriver'
   gem 'factory_girl_rails'
 end
