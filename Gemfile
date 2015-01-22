@@ -19,6 +19,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara',    '~> 2.4.4'
   gem 'launchy',     '~> 2.4.3'
+  gem 'faker',       '~> 1.4.2'
   gem 'selenium-webdriver'
   gem 'factory_girl_rails'
 end
