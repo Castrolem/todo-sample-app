@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe UsersController, :type => :feature, :js => true do
 
@@ -8,7 +9,10 @@ RSpec.describe UsersController, :type => :feature, :js => true do
 
     describe "edit" do
 
-      before { visit edit_user_path(user) }
+      before do
+        # log_in_as(user)
+        visit edit_user_path(user)
+      end
 
       let(:user) { FactoryGirl.create(:user) }
 
