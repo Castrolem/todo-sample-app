@@ -11,26 +11,25 @@ RSpec.describe StaticPagesController, :type => :feature, :js => true do
 
       before { visit login_path }
 
-      let(:submit) { "Create my account" }
       let(:user) { FactoryGirl.create(:user) }
 
-      describe "with invalid information" do
+      context "with invalid information" do
         before { click_button "Log in" }
 
         it { expect(page).to have_title "Log in" }
         it { expect(page).to have_selector('div.alert.alert-danger', text: 'Invalid') }
       end
 
-      describe "with valid information" do
+      context "with valid information" do
         before do
-          fill_in "Email",        with: "user@example.com"
-          fill_in "Password",     with: "foobar"
+          fill_in "Email",        with: user.email
+          fill_in "Password",     with: user.password
           click_button "Log in"
         end
 
-        it { expect(page).to have_title "Log in" }
-        # it { expect(page.current_path).to eq user_path } missing :id key
-        it { should_not have_link('Sign in', href: login_path) }
+        it { expect(page).to_not have_title "Log in" }
+        it { expect(page.current_path).to eq user_path(user) }
+        it { should_not have_link('#{user.name}', href: login_path) }
       end
     end
   end

@@ -12,13 +12,13 @@ RSpec.describe User, :type => :model do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
 
-  # context "authenticated?" do
-  #   it "should return false for a user with nil digest" do
-  #     expect(user.authenticated?('')).to be false
-  #   end
-  # end
+  context "authenticated?" do
+    it "should return false for a user with nil digest" do
+      expect(user.authenticated?('')).to be false
+    end
+  end
 
-  context "name" do
+  describe "name" do
     it "should be present" do
       user.name = "     "
       expect(user).to_not be_valid
@@ -30,7 +30,7 @@ RSpec.describe User, :type => :model do
     end
   end
 
-  context "email" do
+  describe "email" do
     it "should be present" do
       user.email = "     "
       expect(user).to_not be_valid
