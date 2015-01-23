@@ -1,9 +1,21 @@
-<div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
+<% if logged_in? %>
+  <div class="row">
+    <div class="col-xs-12">
+      <section class="task_form">
+        <%= render 'shared/task_form' %>
+        <h3>Micropost Feed</h3>
+        <%= render 'shared/feed' %>
+      </section>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <h1>Welcome to the Sample App</h1>
 
-  <h2>
-    This is the home page for the sample application.
-  </h2>
+    <h2>
+      This is the home page for the sample application.
+    </h2>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-</div>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

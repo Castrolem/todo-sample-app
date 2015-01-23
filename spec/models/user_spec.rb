@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
-  let(:user) { User.new(name: "Example User", email: "user@example.com",
-                        password: "foobar", password_confirmation: "foobar") }
+  let(:user) { FactoryGirl.create(:user) }
 
   it "should be valid" do
     expect(user).to be_valid
@@ -79,6 +78,30 @@ RSpec.describe User, :type => :model do
     it "should have a minimum length" do
       user.password = user.password_confirmation = "a" * 5
       expect(user).to_not be_valid
+    end
+  end
+
+  describe "tasks associations" do
+
+    before { user.save }
+    let!(:older_task) do
+      FactoryGirl.create(:task, user: user, created_at: 1.day.ago)
+    end
+    let!(:newer_task) do
+      FactoryGirl.create(:task, user: user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right tasks in the right order" do
+      user.task.should == [newer_task, older_task]
+    end
+
+    it "should destroy associated tasks" do
+      task = user.task.dup
+      user.destroy
+      task.should_not be_empty
+      task.each do |task|
+        Task.find_by_id(task.id).should be_nil
+      end
     end
   end
 end

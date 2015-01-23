@@ -13,3 +13,9 @@ User.create!( name:  "Example User",
                 password:              password,
                 password_confirmation: password)
 end
+
+users = User.order(:created_at).take(4)
+20.times do
+  content = Faker::Hacker.say_something_smart
+  users.each { |user| user.tasks.create!(content: content) }
+end

@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :task do
-    content "MyText"
-    user nil
+    content "Lorem ipsum"
+    user
   end
-
 end
