@@ -11,6 +11,7 @@ RSpec.describe User, :type => :model do
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:tasks) }
 
   context "authenticated?" do
     it "should return false for a user with nil digest" do
